@@ -411,15 +411,14 @@ return {
 // ─────────────────────────────────────────────────────────────────────────────
 
 const { startTime, name, email, phone } = args;
-const timezone = args.timezone || env.GHL_TIMEZONE;
-const { GHL_API_KEY, GHL_CALENDAR_ID, GHL_LOCATION_ID, GHL_API_BASE, BUSINESS_NAME } = env;
+const { GHL_API_KEY, GHL_CALENDAR_ID, GHL_LOCATION_ID, GHL_API_BASE, GHL_TIMEZONE: timezone, BUSINESS_NAME } = env;
 
 // 1. Validate
 const missing = [];
 if (!startTime) missing.push("startTime");
 if (!name) missing.push("name");
 if (!phone) missing.push("phone");
-if (!timezone) missing.push("timezone (args.timezone or env.GHL_TIMEZONE)");
+if (!timezone) missing.push("env.GHL_TIMEZONE");
 if (!GHL_API_KEY) missing.push("env.GHL_API_KEY");
 if (!GHL_CALENDAR_ID) missing.push("env.GHL_CALENDAR_ID");
 if (!GHL_LOCATION_ID) missing.push("env.GHL_LOCATION_ID");
